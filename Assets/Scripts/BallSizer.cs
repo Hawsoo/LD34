@@ -28,6 +28,8 @@ public class BallSizer : MonoBehaviour {
         scale = new Vector3(BallDiameter, BallDiameter, BallDiameter);
         transform.localScale = scale;
         rb.mass = BallMass;
+
+        Physics.gravity = new Vector3(0, -1.0f*20.0f/BallDiameter, 0);
 	}
 
     void getInput() 
