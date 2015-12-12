@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ItemPowerupMush : MonoBehaviour {
 
+    public GameObject PotatoChar;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +17,7 @@ public class ItemPowerupMush : MonoBehaviour {
 
     void TriggerExecute()
     {
-        Debug.Log("Poopoo!!!");
+        PotatoChar.SendMessage("SetIsLarge", true);
         Destroy(gameObject);
     }
 }
