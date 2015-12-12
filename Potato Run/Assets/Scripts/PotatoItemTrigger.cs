@@ -9,7 +9,12 @@ public class PotatoItemTrigger : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerStay2D (Collider2D other) {
+        if (other.gameObject.tag == "Item")
+        {
+            // Execute item properties
+            ItemProperties ip = other.GetComponent<ItemProperties>();
+            ip.ScriptExecute.SendMessage(ip.MessageName);
+        }
 	}
 }
