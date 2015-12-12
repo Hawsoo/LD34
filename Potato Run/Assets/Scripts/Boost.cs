@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Boost : MonoBehaviour {
-
+    public float boostFactor;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +14,6 @@ public class Boost : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D other)
     {
-        other.gameObject.GetComponent<Rigidbody>().velocity += other.gameObject.GetComponent<Rigidbody>().velocity/5;
+        other.gameObject.GetComponent<Rigidbody2D>().velocity += Vector2.right * boostFactor;
     }
 }
