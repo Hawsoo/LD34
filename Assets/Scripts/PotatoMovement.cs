@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class potato : MonoBehaviour {
+public class PotatoMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
     private BoxCollider2D bc;
     public bool hasSecondJumped;
     public bool hasHitFloor;
+
+    public float JumpSpeed = 10;
+    public float SecondJumpKickoffSpeed = 12;
 
 	// Use this for initialization
 	void Start () {
@@ -14,27 +17,29 @@ public class potato : MonoBehaviour {
         bc = GetComponentInChildren<BoxCollider2D>();
         hasSecondJumped = false;
         hasHitFloor = true;
-
-        rb.AddForce(new Vector2(50.0f, 0.0f));
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate() {
+
+        Vector2 velo = rb.velocity;
 
         if (!hasSecondJumped && Input.GetKeyDown("up"))
         {
             //second jump
-            rb.AddForce(new Vector2(-250.0f,200.0f));
+            velo = new Vector2(-SecondJumpKickoffSpeed, JumpSpeed);
             hasSecondJumped = true;
         }
 
         if (hasHitFloor && Input.GetKeyDown("up"))
         {
             //first jump
-            rb.AddForce(new Vector2(0.0f, 200.0f));
+            velo = new Vector2(velo.x, JumpSpeed);
             hasSecondJumped = false;
             hasHitFloor = false;
         }
+
+        rb.velocity = velo;
 
 
         transform.up = Vector3.up;
@@ -61,7 +66,9 @@ public class potato : MonoBehaviour {
         //if (collision.transform.position.x - collision.collider.bounds.size.x / 2.0f > transform.position.x + bc.bounds.size.x / 2.0f)
         if (collision.gameObject.tag == "wall")
         {
-            rb.AddForce(new Vector2(-60.0f, 0.0f));
+            Vector2 velo = rb.velocity;
+            velo.x = 0;
+            rb.velocity = velo;
         }
 
     }
