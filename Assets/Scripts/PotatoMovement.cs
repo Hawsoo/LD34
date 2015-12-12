@@ -83,21 +83,21 @@ public class PotatoMovement : MonoBehaviour {
     {
         //if collision is a floor
         //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
-        if(collision.gameObject.tag != "wall")
+        if (collision.gameObject.tag != "Collider")
         {
             hasHitFloor = true;
             hasSecondJumped = false;
         }
-        else
         //its a wall
         //if (collision.transform.position.x - collision.collider.bounds.size.x / 2.0f > transform.position.x + bc.bounds.size.x / 2.0f)
         //if (collision.gameObject.tag == "wall")
-        {
-            CanSecondJump = true;
-            Vector2 velo = rb.velocity;
-            velo.x = 0;
-            rb.velocity = velo;
-        }
+    }
 
+    void WallCollision()
+    {
+        CanSecondJump = true;
+        Vector2 velo = rb.velocity;
+        velo.x = 0;
+        rb.velocity = velo;
     }
 }
