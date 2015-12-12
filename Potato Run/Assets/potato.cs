@@ -3,20 +3,18 @@ using System.Collections;
 
 public class potato : MonoBehaviour {
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    if(Input.GetButton("w"))
-        {
-            rb.AddForce(0.0f, 100.0f,0.0f,ForceMode.Impulse);
-        }
-
-        
-	}
+	void FixedUpdate () {
+        //if(Input.GetButton("w"))
+        //{
+        //    rb.AddForce(0.0f, 100.0f,0.0f,ForceMode.Impulse);
+        //}
+    }
 }
