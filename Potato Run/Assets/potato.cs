@@ -4,22 +4,37 @@ using System.Collections;
 public class potato : MonoBehaviour {
 
     private Rigidbody2D rb;
+    private BoxCollider2D bc;
     private float dy;
+    private bool isGrabbing;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        dy = 0.0f;
+        bc = GetComponent<BoxCollider2D>();
+        dy = rb.velocity.y;
+        isGrabbing = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButtonDown("w"))
+	    if(Input.GetKey("up"))
         {
+            //first jump
             dy += 5.0f;
         }
+        if (rb.velocity.x > 0 && bc.isTrigger)
+        {
+            isGrabbing = true;
+        }
+        if (isGrabbing && Input.GetKey("up"))
+        {
+            //second jump
+            dy += 5.0f;
+            isGrabbing = false;
+        }
 
-        rb.velocity = new Vector2(0.0f, dy);
+        rb.velocity.Set(0.0f, dy);
         
 	}
 }
