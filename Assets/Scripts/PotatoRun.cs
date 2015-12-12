@@ -15,10 +15,9 @@ public class PotatoRun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (Move)
+        if (rb.velocity.x < 5.0f)
         {
-            Vector3 m = rb.velocity;
-            rb.velocity = new Vector3(ConstantMvtSpeed, m.y, m.z);
+            rb.AddForce(new Vector2(50.0f, 0.0f));
         }
 	}
 }
