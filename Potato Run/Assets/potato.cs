@@ -3,20 +3,23 @@ using System.Collections;
 
 public class potato : MonoBehaviour {
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
+    private float dy;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
+        dy = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButton("w"))
+	    if(Input.GetButtonDown("w"))
         {
-            rb.AddForce(0.0f, 100.0f,0.0f,ForceMode.Impulse);
+            dy += 5.0f;
         }
 
+        rb.velocity = new Vector2(0.0f, dy);
         
 	}
 }
