@@ -5,18 +5,19 @@ public class potato : MonoBehaviour {
 
     private Rigidbody2D rb;
     private BoxCollider2D bc;
+    private PotatoRun pr;
     private bool isGrabbing;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
+        pr = GetComponent<PotatoRun>();
         isGrabbing = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
 	    if(Input.GetKeyDown("up")&&bc.isTrigger)
         {
             //first jump
