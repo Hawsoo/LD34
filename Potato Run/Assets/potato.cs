@@ -17,7 +17,7 @@ public class potato : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-	    if(Input.GetKeyDown("up"))
+	    if(Input.GetKeyDown("up")&&bc.isTrigger)
         {
             //first jump
             rb.AddForce(new Vector2(0.0f, 100.0f));
@@ -29,7 +29,7 @@ public class potato : MonoBehaviour {
         if (isGrabbing && Input.GetKeyDown("up"))
         {
             //second jump
-            rb.AddForce(new Vector2(0.0f, 100.0f));
+            rb.AddForce(new Vector2(-1.0f, 100.0f));
             isGrabbing = false;
         }
 
