@@ -1,2 +1,10 @@
+<<<<<<< HEAD
 m_EditorVersion: 5.3.0f4
+=======
+<<<<<<< HEAD
+m_EditorVersion: 5.0.2f1
+=======
+m_EditorVersion: 5.0.1f1
+>>>>>>> origin/develop
+>>>>>>> origin/develop
 m_StandardAssetsVersion: 0
