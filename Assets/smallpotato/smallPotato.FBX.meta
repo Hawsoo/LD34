@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: aa6bd95d7c376ed4c850da6fc7f90172
+timeCreated: 1449992331
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box001
+    100002: GameChar
+    100004: GameCharHead
+    100006: GameCharLAnkle
+    100008: GameCharLArmCollarbone
+    100010: GameCharLArmForeArm
+    100012: GameCharLArmIKTarget
+    100014: GameCharLArmPalm
+    100016: GameCharLArmUpperArm
+    100018: GameCharLCalf
+    100020: GameCharLPlatform
+    100022: GameCharLShouderPad
+    100024: GameCharLThigh
+    100026: GameCharNeck
+    100028: GameCharPelvis
+    100030: GameCharRAnkle
+    100032: GameCharRCalf
+    100034: GameCharRCollarbone
+    100036: GameCharRForeArm
+    100038: GameCharRibcage
+    100040: GameCharRIKTarget
+    100042: GameCharRPalm
+    100044: GameCharRPlatform
+    100046: GameCharRShouderPad
+    100048: GameCharRThigh
+    100050: GameCharRUpperArm
+    100052: GameCharSpine1
+    100054: GameCharSpine2
+    100056: GameCharSpine3
+    100058: //RootNode
+    400000: Box001
+    400002: GameChar
+    400004: GameCharHead
+    400006: GameCharLAnkle
+    400008: GameCharLArmCollarbone
+    400010: GameCharLArmForeArm
+    400012: GameCharLArmIKTarget
+    400014: GameCharLArmPalm
+    400016: GameCharLArmUpperArm
+    400018: GameCharLCalf
+    400020: GameCharLPlatform
+    400022: GameCharLShouderPad
+    400024: GameCharLThigh
+    400026: GameCharNeck
+    400028: GameCharPelvis
+    400030: GameCharRAnkle
+    400032: GameCharRCalf
+    400034: GameCharRCollarbone
+    400036: GameCharRForeArm
+    400038: GameCharRibcage
+    400040: GameCharRIKTarget
+    400042: GameCharRPalm
+    400044: GameCharRPlatform
+    400046: GameCharRShouderPad
+    400048: GameCharRThigh
+    400050: GameCharRUpperArm
+    400052: GameCharSpine1
+    400054: GameCharSpine2
+    400056: GameCharSpine3
+    400058: //RootNode
+    2300000: GameCharLShouderPad
+    2300002: GameCharRShouderPad
+    3300000: GameCharLShouderPad
+    3300002: GameCharRShouderPad
+    4300000: Box001
+    4300002: GameCharLShouderPad
+    4300004: GameCharRShouderPad
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Box001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box001
+        weight: 1
+      - path: GameChar
+        weight: 1
+      - path: GameCharLArmIKTarget
+        weight: 1
+      - path: GameCharLPlatform
+        weight: 1
+      - path: GameCharPelvis
+        weight: 1
+      - path: GameCharPelvis/GameCharLThigh
+        weight: 1
+      - path: GameCharPelvis/GameCharLThigh/GameCharLCalf
+        weight: 1
+      - path: GameCharPelvis/GameCharLThigh/GameCharLCalf/GameCharLAnkle
+        weight: 1
+      - path: GameCharPelvis/GameCharRThigh
+        weight: 1
+      - path: GameCharPelvis/GameCharRThigh/GameCharRCalf
+        weight: 1
+      - path: GameCharPelvis/GameCharRThigh/GameCharRCalf/GameCharRAnkle
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLArmUpperArm
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLArmUpperArm/GameCharLArmForeArm
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLArmUpperArm/GameCharLArmForeArm/GameCharLArmPalm
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLShouderPad
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharNeck
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharNeck/GameCharHead
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRShouderPad
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRUpperArm
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRUpperArm/GameCharRForeArm
+        weight: 1
+      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRUpperArm/GameCharRForeArm/GameCharRPalm
+        weight: 1
+      - path: GameCharRIKTarget
+        weight: 1
+      - path: GameCharRPlatform
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
