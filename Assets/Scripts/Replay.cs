@@ -7,7 +7,7 @@ public class Replay : MonoBehaviour {
 	void Update () {
         if (Input.GetKey("up"))
         {
-            Application.LoadLevel("LevelTest");
+            Application.LoadLevel("infiniteRun");
         }
 	}
 }

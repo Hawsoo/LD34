@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: aa6bd95d7c376ed4c850da6fc7f90172
-timeCreated: 1449992331
+guid: 63d80f61438e4be4abe3c0541cb02f4f
+timeCreated: 1449997037
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box001
-    100002: GameChar
-    100004: GameCharHead
-    100006: GameCharLAnkle
-    100008: GameCharLArmCollarbone
-    100010: GameCharLArmForeArm
-    100012: GameCharLArmIKTarget
-    100014: GameCharLArmPalm
-    100016: GameCharLArmUpperArm
-    100018: GameCharLCalf
-    100020: GameCharLPlatform
-    100022: GameCharLShouderPad
+    100000: AAA_Box001
+    100002: Circle001
+    100004: GameChar
+    100006: GameCharHead
+    100008: GameCharLAnkle
+    100010: GameCharLArmCollarbone
+    100012: GameCharLArmForeArm
+    100014: GameCharLArmIKTarget
+    100016: GameCharLArmPalm
+    100018: GameCharLArmUpperArm
+    100020: GameCharLCalf
+    100022: GameCharLPlatform
     100024: GameCharLThigh
     100026: GameCharNeck
     100028: GameCharPelvis
@@ -28,25 +28,24 @@ ModelImporter:
     100040: GameCharRIKTarget
     100042: GameCharRPalm
     100044: GameCharRPlatform
-    100046: GameCharRShouderPad
-    100048: GameCharRThigh
-    100050: GameCharRUpperArm
-    100052: GameCharSpine1
-    100054: GameCharSpine2
-    100056: GameCharSpine3
-    100058: //RootNode
-    400000: Box001
-    400002: GameChar
-    400004: GameCharHead
-    400006: GameCharLAnkle
-    400008: GameCharLArmCollarbone
-    400010: GameCharLArmForeArm
-    400012: GameCharLArmIKTarget
-    400014: GameCharLArmPalm
-    400016: GameCharLArmUpperArm
-    400018: GameCharLCalf
-    400020: GameCharLPlatform
-    400022: GameCharLShouderPad
+    100046: GameCharRThigh
+    100048: GameCharRUpperArm
+    100050: GameCharSpine1
+    100052: GameCharSpine2
+    100054: GameCharSpine3
+    100056: //RootNode
+    400000: AAA_Box001
+    400002: Circle001
+    400004: GameChar
+    400006: GameCharHead
+    400008: GameCharLAnkle
+    400010: GameCharLArmCollarbone
+    400012: GameCharLArmForeArm
+    400014: GameCharLArmIKTarget
+    400016: GameCharLArmPalm
+    400018: GameCharLArmUpperArm
+    400020: GameCharLCalf
+    400022: GameCharLPlatform
     400024: GameCharLThigh
     400026: GameCharNeck
     400028: GameCharPelvis
@@ -58,23 +57,16 @@ ModelImporter:
     400040: GameCharRIKTarget
     400042: GameCharRPalm
     400044: GameCharRPlatform
-    400046: GameCharRShouderPad
-    400048: GameCharRThigh
-    400050: GameCharRUpperArm
-    400052: GameCharSpine1
-    400054: GameCharSpine2
-    400056: GameCharSpine3
-    400058: //RootNode
-    2300000: GameCharLShouderPad
-    2300002: GameCharRShouderPad
-    3300000: GameCharLShouderPad
-    3300002: GameCharRShouderPad
-    4300000: Box001
-    4300002: GameCharLShouderPad
-    4300004: GameCharRShouderPad
+    400046: GameCharRThigh
+    400048: GameCharRUpperArm
+    400050: GameCharSpine1
+    400052: GameCharSpine2
+    400054: GameCharSpine3
+    400056: //RootNode
+    4300000: AAA_Box001
     7400000: Take 001
     9500000: //RootNode
-    13700000: Box001
+    13700000: AAA_Box001
   materials:
     importMaterials: 1
     materialName: 0
@@ -100,7 +92,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,7 +115,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Box001
+      - path: AAA_Box001
+        weight: 1
+      - path: Circle001
         weight: 1
       - path: GameChar
         weight: 1
@@ -161,15 +155,11 @@ ModelImporter:
         weight: 1
       - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLArmUpperArm/GameCharLArmForeArm/GameCharLArmPalm
         weight: 1
-      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharLArmCollarbone/GameCharLShouderPad
-        weight: 1
       - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharNeck
         weight: 1
       - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharNeck/GameCharHead
         weight: 1
       - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone
-        weight: 1
-      - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRShouderPad
         weight: 1
       - path: GameCharPelvis/GameCharSpine1/GameCharSpine2/GameCharSpine3/GameCharRibcage/GameCharRCollarbone/GameCharRUpperArm
         weight: 1

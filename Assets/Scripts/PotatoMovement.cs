@@ -11,14 +11,12 @@ public class PotatoMovement : MonoBehaviour {
 
     public float Acceleration = 1f;
 
-    public float JumpLiftOff = 1;
-    public float ConstantMvtSpeed = 10f;
+    public float ConstantMvtSpeed = 0.13f;
 
-    public float JumpSpeed = 10;
-    public float SecondJumpKickoffSpeed = 20;
+    public float JumpSpeed = 1;
+    public float SecondJumpSpeed = 2;
 
     private bool UpPressedPrev = false;
-
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -31,34 +29,36 @@ public class PotatoMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate() {
 
+        if (transform.position.y < -20)
+        {
+            Application.LoadLevel("deathMenu");
+        }
+
         Vector2 velo = rb.velocity;
 
-        if (rb.velocity.x < 5.0f && (!CanSecondJump || (CanSecondJump && hasSecondJumped)))
-        {
-            velo.x += Acceleration;
-        }
+        //if (rb.velocity.x < 5.0f && (!CanSecondJump || (CanSecondJump && hasSecondJumped)))
+        //{
+        //    velo.x += Acceleration;
+        //}
 
         if (hasHitFloor && Input.GetKey("up") && !UpPressedPrev)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + JumpLiftOff, transform.position.z);
-            
             // first jump
             velo = new Vector2(velo.x, JumpSpeed);
             hasSecondJumped = false;
             hasHitFloor = false;
+            CanSecondJump = true;
         }
         else if (!hasSecondJumped && CanSecondJump && Input.GetKey("up") && !UpPressedPrev)
         {
-            transform.position = new Vector3(transform.position.x - JumpLiftOff, transform.position.y, transform.position.z);
-
             // second jump
-            velo = new Vector2(-SecondJumpKickoffSpeed, JumpSpeed);
+            velo = new Vector2(velo.x, SecondJumpSpeed);
             hasSecondJumped = true;
             CanSecondJump = false;
         }
 
         if (CanSecondJump)
-        { velo.x = 0; }
+        { velo.x = -0.1f; }
 
         rb.velocity = velo;
 
@@ -67,39 +67,39 @@ public class PotatoMovement : MonoBehaviour {
 
         // Undo Trigger vars
         hasHitFloor = false;
-        CanSecondJump = false;
         UpPressedPrev = Input.GetKey("up");
 	}
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    //if collision is a floor
-    //    //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
-    //    if (collision.gameObject.tag != "wall")
-    //    {
-    //        hasHitFloor = true;
-    //    }
-    //}
-    //void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    //if collision is a floor
-    //    //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
-    //    if (collision.gameObject.tag != "Collider")
-
-    void FloorCollision()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        hasHitFloor = true;
-        hasSecondJumped = false;
+        //if collision is a floor
+        //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
+        if (collision.gameObject.tag != "wall")
+        {
+            hasHitFloor = true;
+        }
     }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        //if collision is a floor
+        //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
+        //void FloorCollision()
+        if (collision.gameObject.tag == "Floor")
+        {
+            hasHitFloor = true;
+            hasSecondJumped = false;
+            UpPressedPrev = false;
+        }
+
         //its a wall
         //if (collision.transform.position.x - collision.collider.bounds.size.x / 2.0f > transform.position.x + bc.bounds.size.x / 2.0f)
-        //if (collision.gameObject.tag == "wall")
-    //}
-
-    void WallCollision()
-    {
-        CanSecondJump = true;
-        Vector2 velo = rb.velocity;
-        velo.x = 0;
-        rb.velocity = velo;
+        //void WallCollision()
+        if (collision.gameObject.tag == "Wall")
+        {
+            //CanSecondJump = true;
+            Vector2 velo = rb.velocity;
+            velo.x = 0;
+            rb.velocity = velo;
+        }
     }
+
 }
