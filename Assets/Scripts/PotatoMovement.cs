@@ -79,19 +79,21 @@ public class PotatoMovement : MonoBehaviour {
     //        hasHitFloor = true;
     //    }
     //}
-    void OnCollisionStay2D(Collision2D collision)
+    //void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    //if collision is a floor
+    //    //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
+    //    if (collision.gameObject.tag != "Collider")
+
+    void FloorCollision()
     {
-        //if collision is a floor
-        //if (collision.transform.position.y + collision.collider.bounds.size.y / 2.0f < transform.position.y - bc.bounds.size.y / 2.0f)
-        if (collision.gameObject.tag != "Collider")
-        {
-            hasHitFloor = true;
-            hasSecondJumped = false;
-        }
+        hasHitFloor = true;
+        hasSecondJumped = false;
+    }
         //its a wall
         //if (collision.transform.position.x - collision.collider.bounds.size.x / 2.0f > transform.position.x + bc.bounds.size.x / 2.0f)
         //if (collision.gameObject.tag == "wall")
-    }
+    //}
 
     void WallCollision()
     {
