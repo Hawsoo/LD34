@@ -5,9 +5,13 @@ public class PotatoMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
     private BoxCollider2D bc;
-    public bool hasSecondJumped;
+    //public bool hasSecondJumped;
     public bool hasHitFloor;
-    public bool CanSecondJump;
+    //public bool CanSecondJump;
+    public int MaxJumps = 2;
+    private int JumpsMade = 0;
+
+    private bool HitWall;
 
     public float Acceleration = 1f;
 
@@ -23,9 +27,10 @@ public class PotatoMovement : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponentInChildren<BoxCollider2D>();
-        hasSecondJumped = false;
+        //hasSecondJumped = false;
         hasHitFloor = true;
-        CanSecondJump = false;
+        //CanSecondJump = false;
+        HitWall = false;
 	}
 	
 	// Update is called once per frame
@@ -33,31 +38,35 @@ public class PotatoMovement : MonoBehaviour {
 
         Vector2 velo = rb.velocity;
 
-        if (rb.velocity.x < 5.0f && (!CanSecondJump || (CanSecondJump && hasSecondJumped)))
+        if (rb.velocity.x < 5.0f/* && (!CanSecondJump || (CanSecondJump && hasSecondJumped))*/)
         {
             velo.x += Acceleration;
         }
 
-        if (hasHitFloor && Input.GetKey("up") && !UpPressedPrev)
+        if (((hasHitFloor/* && JumpsMade == 0*/) || (JumpsMade < MaxJumps)) && Input.GetKey("up") && !UpPressedPrev)
         {
+            if (!hasHitFloor && JumpsMade == 0) { JumpsMade++; }
             transform.position = new Vector3(transform.position.x, transform.position.y + JumpLiftOff, transform.position.z);
             
             // first jump
             velo = new Vector2(velo.x, JumpSpeed);
-            hasSecondJumped = false;
+            //hasSecondJumped = false;
             hasHitFloor = false;
-        }
-        else if (!hasSecondJumped && CanSecondJump && Input.GetKey("up") && !UpPressedPrev)
-        {
-            transform.position = new Vector3(transform.position.x - JumpLiftOff, transform.position.y, transform.position.z);
 
-            // second jump
-            velo = new Vector2(-SecondJumpKickoffSpeed, JumpSpeed);
-            hasSecondJumped = true;
-            CanSecondJump = false;
+            
+            JumpsMade++;
         }
+        //else if (!hasSecondJumped && CanSecondJump && Input.GetKey("up") && !UpPressedPrev)
+        //{
+        //    transform.position = new Vector3(transform.position.x - JumpLiftOff, transform.position.y, transform.position.z);
 
-        if (CanSecondJump)
+        //    // second jump
+        //    velo = new Vector2(-SecondJumpKickoffSpeed, JumpSpeed);
+        //    hasSecondJumped = true;
+        //    CanSecondJump = false;
+        //}
+
+        if (HitWall)
         { velo.x = 0; }
 
         rb.velocity = velo;
@@ -67,7 +76,8 @@ public class PotatoMovement : MonoBehaviour {
 
         // Undo Trigger vars
         hasHitFloor = false;
-        CanSecondJump = false;
+        //CanSecondJump = false;
+        HitWall = false;
         UpPressedPrev = Input.GetKey("up");
 	}
     //void OnCollisionEnter2D(Collision2D collision)
@@ -88,7 +98,8 @@ public class PotatoMovement : MonoBehaviour {
     void FloorCollision()
     {
         hasHitFloor = true;
-        hasSecondJumped = false;
+        JumpsMade = 0;
+        //hasSecondJumped = false;
     }
         //its a wall
         //if (collision.transform.position.x - collision.collider.bounds.size.x / 2.0f > transform.position.x + bc.bounds.size.x / 2.0f)
@@ -97,7 +108,8 @@ public class PotatoMovement : MonoBehaviour {
 
     void WallCollision()
     {
-        CanSecondJump = true;
+        //CanSecondJump = true;
+        HitWall = true;
         Vector2 velo = rb.velocity;
         velo.x = 0;
         rb.velocity = velo;
