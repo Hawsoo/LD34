@@ -25,7 +25,10 @@ public class HardBlockBehavior : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.root.gameObject == LevelInfo._player)
+        Debug.Log(other.gameObject.name);
+
+        if (other.transform.root.gameObject == LevelInfo._player &&
+            LevelInfo._player.GetComponent<PotatoGrow>().IsLarge)
         {
             Destroy(gameObject);
         }
