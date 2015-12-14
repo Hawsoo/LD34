@@ -5,9 +5,7 @@ public class PotatoMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
     private BoxCollider2D bc;
-    //public bool hasSecondJumped;
     public bool hasHitFloor;
-    //public bool CanSecondJump;
     public int MaxJumps = 2;
     private int JumpsMade = 0;
 
@@ -19,12 +17,13 @@ public class PotatoMovement : MonoBehaviour {
     public float ConstantMvtSpeed = 10f;
 
     public float JumpSpeed = 10;
-    public float SecondJumpKickoffSpeed = 20;
 
     private bool UpPressedPrev = false;
     private bool RightPressedPrev = false;
 
     public bool IsCharging = false;
+	public float ChargeTime;
+	private float ChargeTimeWaited;
 
     public AudioClip Jump;
     public AudioClip Charge;
@@ -33,9 +32,7 @@ public class PotatoMovement : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponentInChildren<BoxCollider2D>();
-        //hasSecondJumped = false;
         hasHitFloor = true;
-        //CanSecondJump = false;
         HitWall = false;
 	}
 	
@@ -78,9 +75,10 @@ public class PotatoMovement : MonoBehaviour {
         //}
 
         // Do charge
-        if (hasHitFloor && GetComponent<PotatoGrow>().IsLarge && Input.GetKey("right") && !RightPressedPrev && !AudioUtils.Audio.isPlaying && !IsCharging)
+        if (hasHitFloor && GetComponent<PotatoGrow>().IsLarge && Input.GetKey("right") && !RightPressedPrev && !IsCharging)
         {
-            IsCharging = true;
+			IsCharging = true;
+			ChargeTimeWaited = 0;
             AudioUtils.Audio.PlayOneShot(Charge);
 
             // Override Animation
@@ -91,8 +89,14 @@ public class PotatoMovement : MonoBehaviour {
             velo.x = 10;
         }
         // Keep doing charge until sound ends
-        else if (GetComponent<PotatoGrow>().IsLarge && AudioUtils.Audio.isPlaying && IsCharging)
+        else if (GetComponent<PotatoGrow>().IsLarge && IsCharging)
         {
+			ChargeTimeWaited += Time.deltaTime;
+			if (ChargeTime <= ChargeTimeWaited)
+			{
+				IsCharging = false;
+			}
+
             // Override Animation
             GetComponent<PotatoMechanim>().OverrideMechanim = true;
             GetComponent<PotatoMechanim>().LargePotato.SetBool("OnGround", false);
@@ -100,17 +104,17 @@ public class PotatoMovement : MonoBehaviour {
             // Go twice as fast
             velo.x = 10;
         }
-        else if (GetComponent<PotatoGrow>().IsLarge && !AudioUtils.Audio.isPlaying && IsCharging)
-        {
-            // Undo
-            IsCharging = false;
-        }
+        //else if (GetComponent<PotatoGrow>().IsLarge && !AudioUtils.Audio.isPlaying && IsCharging)
+        //{
+        //    // Undo
+        //    IsCharging = false;
+        //}
 
         if (HitWall)
         { velo.x = 0; }
 
         rb.velocity = velo;
-
+		Debug.Log (velo.x);;
 
         transform.up = Vector3.up;
 

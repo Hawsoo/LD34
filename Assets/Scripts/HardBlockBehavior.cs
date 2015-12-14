@@ -4,11 +4,6 @@ using System.Collections;
 public class HardBlockBehavior : MonoBehaviour {
 
     public AudioClip BreakBlock;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,7 +23,7 @@ public class HardBlockBehavior : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.transform.root.gameObject == LevelInfo._player &&
+        if (other.transform.root.gameObject.tag == "Player" &&
             LevelInfo._player.GetComponent<PotatoGrow>().IsLarge &&
             LevelInfo._player.GetComponent<PotatoMovement>().IsCharging)
         {
