@@ -25,8 +25,6 @@ public class HardBlockBehavior : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
-
         if (other.transform.root.gameObject == LevelInfo._player)
         {
             Destroy(gameObject);
