@@ -3,6 +3,8 @@ using System.Collections;
 
 public class HardBlockBehavior : MonoBehaviour {
 
+    public AudioClip BreakBlock;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,7 +13,8 @@ public class HardBlockBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    // Check if player is large
-        if (LevelInfo._player.GetComponent<PotatoGrow>().IsLarge)
+        if (LevelInfo._player.GetComponent<PotatoGrow>().IsLarge &&
+            LevelInfo._player.GetComponent<PotatoMovement>().IsCharging)
         {
             // Set collision to trigger
             GetComponent<BoxCollider2D>().isTrigger = true;
@@ -23,13 +26,13 @@ public class HardBlockBehavior : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
-
         if (other.transform.root.gameObject == LevelInfo._player &&
-            LevelInfo._player.GetComponent<PotatoGrow>().IsLarge)
+            LevelInfo._player.GetComponent<PotatoGrow>().IsLarge &&
+            LevelInfo._player.GetComponent<PotatoMovement>().IsCharging)
         {
+            AudioUtils.Audio.PlayOneShot(BreakBlock);
             Destroy(gameObject);
         }
     }

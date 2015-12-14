@@ -19,7 +19,7 @@ public class PotatoGrow : MonoBehaviour {
         if (IsLargePrev != IsLarge)
         {
             IsLargePrev = IsLarge;
-            AudioSource.PlayClipAtPoint(PowerUp, Vector3.zero);
+            AudioUtils.Audio.PlayOneShot(PowerUp);
 
             PotatoSmall.SetActive(!IsLarge);
             PotatoLarge.SetActive(IsLarge);

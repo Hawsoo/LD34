@@ -22,6 +22,12 @@ public class PotatoMovement : MonoBehaviour {
     public float SecondJumpKickoffSpeed = 20;
 
     private bool UpPressedPrev = false;
+    private bool RightPressedPrev = false;
+
+    public bool IsCharging = false;
+
+    public AudioClip Jump;
+    public AudioClip Charge;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +48,10 @@ public class PotatoMovement : MonoBehaviour {
         {
             velo.x += Acceleration;
         }
+        else
+        {
+            velo.x = 5.0f;
+        }
 
         if (((hasHitFloor/* && JumpsMade == 0*/) || (JumpsMade < MaxJumps)) && Input.GetKey("up") && !UpPressedPrev)
         {
@@ -53,6 +63,7 @@ public class PotatoMovement : MonoBehaviour {
             //hasSecondJumped = false;
             hasHitFloor = false;
 
+            AudioUtils.Audio.PlayOneShot(Jump);
             
             JumpsMade++;
         }
@@ -65,6 +76,35 @@ public class PotatoMovement : MonoBehaviour {
         //    hasSecondJumped = true;
         //    CanSecondJump = false;
         //}
+
+        // Do charge
+        if (hasHitFloor && GetComponent<PotatoGrow>().IsLarge && Input.GetKey("right") && !RightPressedPrev && !AudioUtils.Audio.isPlaying && !IsCharging)
+        {
+            IsCharging = true;
+            AudioUtils.Audio.PlayOneShot(Charge);
+
+            // Override Animation
+            GetComponent<PotatoMechanim>().OverrideMechanim = true;
+            GetComponent<PotatoMechanim>().LargePotato.SetBool("OnGround", false);
+
+            // Go twice as fast
+            velo.x = 10;
+        }
+        // Keep doing charge until sound ends
+        else if (GetComponent<PotatoGrow>().IsLarge && AudioUtils.Audio.isPlaying && IsCharging)
+        {
+            // Override Animation
+            GetComponent<PotatoMechanim>().OverrideMechanim = true;
+            GetComponent<PotatoMechanim>().LargePotato.SetBool("OnGround", false);
+
+            // Go twice as fast
+            velo.x = 10;
+        }
+        else if (GetComponent<PotatoGrow>().IsLarge && !AudioUtils.Audio.isPlaying && IsCharging)
+        {
+            // Undo
+            IsCharging = false;
+        }
 
         if (HitWall)
         { velo.x = 0; }
@@ -79,6 +119,7 @@ public class PotatoMovement : MonoBehaviour {
         //CanSecondJump = false;
         HitWall = false;
         UpPressedPrev = Input.GetKey("up");
+        RightPressedPrev = Input.GetKey("right");
 	}
     //void OnCollisionEnter2D(Collision2D collision)
     //{
