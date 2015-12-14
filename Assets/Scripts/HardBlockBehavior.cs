@@ -27,7 +27,8 @@ public class HardBlockBehavior : MonoBehaviour {
     {
         Debug.Log(other.gameObject.name);
 
-        if (other.transform.root.gameObject == LevelInfo._player)
+        if (other.transform.root.gameObject == LevelInfo._player &&
+            LevelInfo._player.GetComponent<PotatoGrow>().IsLarge)
         {
             Destroy(gameObject);
         }
