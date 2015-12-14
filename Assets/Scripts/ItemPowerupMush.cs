@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemPowerupMush : MonoBehaviour {
 
-    public GameObject PotatoChar;
+    //public GameObject PotatoChar;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class ItemPowerupMush : MonoBehaviour {
 
     void TriggerExecute()
     {
-        PotatoChar.SendMessage("SetIsLarge", true);
+        LevelInfo._player.SendMessage("SetIsLarge", true);
         Destroy(gameObject);
     }
 }
