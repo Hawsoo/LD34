@@ -4,7 +4,7 @@ using System.Collections;
 public class MenuController : MonoBehaviour {
 
 	public AudioClip MenuTick;
-
+	[SerializeField]
     private int selected;
     [SerializeField]
     private GameObject NotEaten;

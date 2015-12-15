@@ -114,7 +114,6 @@ public class PotatoMovement : MonoBehaviour {
         { velo.x = 0; }
 
         rb.velocity = velo;
-		Debug.Log (velo.x);;
 
         transform.up = Vector3.up;
 
